@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: #333;
+    color: white;
+    padding: 10px;
+}
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.shop {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #ddd;
+    padding: 10px;
+}
+.game-field {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: lightgreen;
+    overflow: hidden;
+}
+.beetle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: brown;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.rare {
+    background: gold;
+}

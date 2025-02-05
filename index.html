@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жуки - Игра</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/constValues.js" defer></script>
+    <script src="js/beetle.js" defer></script>
+    <script src="js/game.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/shop.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div>Счёт: <span id="score">0</span></div>
+        <div>Монеты: <span id="coins">0</span></div>
+        <div>Кристаллы: <span id="gems">0</span></div>
+    </div>
+    <div class="game-container">
+        <div class="shop" id="left-shop">
+            <div id="left-shop-item-1">Предмет 1</div>
+            <div id="left-shop-item-2">Предмет 2</div>
+        </div>
+        <div class="game-field" id="game-field"></div>
+        <div class="shop" id="right-shop">
+            <div id="right-shop-item-1">Предмет 3</div>
+            <div id="right-shop-item-2">Предмет 4</div>
+        </div>
+    </div>
+</body>
+</html>
