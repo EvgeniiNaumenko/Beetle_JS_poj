@@ -36,16 +36,9 @@ body {
 }
 .beetle {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background: brown;
-    border-radius: 50%;
-    text-align: center;
+    text-align: top;
     line-height: 30px;
     color: white;
     font-weight: bold;
     cursor: pointer;
-}
-.rare {
-    background: gold;
 }
