@@ -11,7 +11,7 @@ const beetleStats = {
 }
 
 const currentUser = {
-    lvl: 1,
+    score: 0,
     gold: 0,
     diamond: 0,
     attackPower: 1,

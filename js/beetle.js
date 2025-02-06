@@ -2,6 +2,7 @@ class Beetle {
     constructor(speed, life, price, isRare,size, y) {
         this.speed = speed;
         this.life = life;
+        this.scoreCount = life;
         this.price = price;
         this.isRare = isRare;
         this.size = size;
@@ -56,17 +57,17 @@ class Beetle {
 
             this.isDead = true;
             this.speed = 0;
+            this.element.style.pointerEvents = "none";
+            
             if(this.isRare){
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug_rare.png')`;
+                currentUser.diamond += this.price;
             }
             else{
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug.png')`;
-            }
-            if (this.isRare) {
-                currentUser.diamond += this.price;
-            } else {
                 currentUser.gold += this.price;
             }
+            currentUser.score+=this.scoreCount;
             setTimeout(() => {
                 this.element.remove();
                 checkBeetles();
