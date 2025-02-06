@@ -11,6 +11,7 @@ let rightItem3 = document.querySelector("#left-shop .shop-item:nth-child(3) .buy
 leftItem1.addEventListener('click', function(){
     if(currentUser.gold > price * currentUser.leftShopItem1Lvl)
     {
+        buyItemSound();
         currentUser.gold -= price * currentUser.leftShopItem1Lvl;
         currentUser.leftShopItem1Lvl += 1;
         currentUser.beetlesCount+= 1;
@@ -21,6 +22,7 @@ leftItem1.addEventListener('click', function(){
 leftItem2.addEventListener('click', function(){
     if(currentUser.gold > price * currentUser.leftShopItem2Lvl * 2)
     {
+        buyItemSound();
         currentUser.gold -= price * currentUser.leftShopItem2Lvl * 2;
         beetleStats.life*=2;
         beetleStats.size+=5;
@@ -36,6 +38,7 @@ leftItem2.addEventListener('click', function(){
 leftItem3.addEventListener('click', function(){
     if(currentUser.diamond > price * currentUser.leftShopItem3Lvl)
     {
+        buyItemSound();
         currentUser.diamond -= price * currentUser.leftShopItem3Lvl;
         currentUser.leftShopItem3Lvl += 1;
         beetleStats.rareChance+=0.01;
