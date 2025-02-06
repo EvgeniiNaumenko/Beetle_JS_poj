@@ -16,6 +16,7 @@ const currentUser = {
     diamond: 0,
     attackPower: 1,
     beetlesCount: 2,
+    volume: 0.5,
     leftShopItem1Lvl: 1,
     leftShopItem2Lvl: 1,
     leftShopItem3Lvl: 1,

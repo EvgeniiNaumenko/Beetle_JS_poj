@@ -17,6 +17,9 @@ leftItem1.addEventListener('click', function(){
         currentUser.beetlesCount+= 1;
         updateUI();
     }
+    else{
+        cantBuyItemSound()
+    }
 })
 
 leftItem2.addEventListener('click', function(){
@@ -33,6 +36,9 @@ leftItem2.addEventListener('click', function(){
         currentUser.leftShopItem2Lvl += 1;
         updateUI();
     }
+    else{
+        cantBuyItemSound()
+    }
 })
 
 leftItem3.addEventListener('click', function(){
@@ -43,5 +49,8 @@ leftItem3.addEventListener('click', function(){
         currentUser.leftShopItem3Lvl += 1;
         beetleStats.rareChance+=0.01;
         updateUI();
+    }
+    else{
+        cantBuyItemSound()
     }
 })
