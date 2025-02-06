@@ -53,12 +53,13 @@ class Beetle {
     takeDamage() {
         // Уменьшаем жизнь на значение attackPower пользователя
         this.life -= currentUser.attackPower;
+        punchSound();
         if (this.life <= 0) {
 
             this.isDead = true;
             this.speed = 0;
             this.element.style.pointerEvents = "none";
-            
+
             if(this.isRare){
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug_rare.png')`;
                 currentUser.diamond += this.price;
