@@ -1,6 +1,7 @@
 function updateUI() {
 
     //для пользователя
+    document.getElementById("score").innerText = `${Math.floor(currentUser.score)}`;
     document.getElementById("coins").innerText = `${Math.floor(currentUser.gold)}`;
     document.getElementById("gems").innerText = `${Math.floor(currentUser.diamond)}`;;
 
