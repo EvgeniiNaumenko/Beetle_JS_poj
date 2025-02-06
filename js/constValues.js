@@ -3,9 +3,10 @@ let beetles = [];
 const price = 10;
 
 const beetleStats = {
-    speed : 3,
+    size : 40,
+    speed : 1,
     life: 1,
-    price: 1,
+    price: 100,
     rareChance: 0.02
 }
 
@@ -15,8 +16,11 @@ const currentUser = {
     diamond: 0,
     attackPower: 1,
     beetlesCount: 2,
-    shopItem1Lvl: 1,
-    shopItem2Lvl: 1,
-    shopItem3Lvl: 1,
-    shopItem4Lvl: 1
+    leftShopItem1Lvl: 1,
+    leftShopItem2Lvl: 1,
+    leftShopItem3Lvl: 1,
+    rightShopItem1Lvl: 1,
+    rightShopItem2Lvl: 1,
+    rightShopItem3Lvl: 1
 };
+

@@ -1,17 +1,25 @@
 class Beetle {
-    constructor(speed, life, price, isRare, x, y) {
+    constructor(speed, life, price, isRare,size, y) {
         this.speed = speed;
         this.life = life;
         this.price = price;
         this.isRare = isRare;
-        this.x = x;
+        this.size = size;
+        this.isDead = false;
+        this.x = 0;
         this.y = y;
-        this.centerX = this.x + 15;  // Центр жука по оси X
-        this.centerY = this.y + 15;  // Центр жука по оси Y
+        this.centerX = this.size / 2;  // Центр жука по оси X
+        this.centerY = this.size / 2;   // Центр жука по оси Y
         this.element = document.createElement("div");
         this.element.classList.add("beetle");
+        // Устанавливаем размер и фон
+        this.element.style.width = `${this.size}px`;
+        this.element.style.height = `${this.size}px`;
+        this.element.style.backgroundImage = `url(Sprite/bug/alive_bug.png)`;
+        this.element.style.backgroundSize = "cover";
         if (this.isRare) {
             this.element.classList.add("rare");
+            this.element.style.backgroundImage = `url(Sprite/bug/alive_bug_rare.png)`;
         }
         this.element.innerText = this.life;
         document.getElementById("game-field").appendChild(this.element);
@@ -22,8 +30,8 @@ class Beetle {
     updatePosition() {
         this.element.style.left = `${this.x}px`;
         this.element.style.top = `${this.y}px`;
-        this.centerX = this.x + 15;  // Обновляем центр по оси X
-        this.centerY = this.y + 15;  // Обновляем центр по оси Y
+        this.centerX = this.x / 2;  // Обновляем центр по оси X
+        this.centerY = this.y / 2;  // Обновляем центр по оси Y
     }
 
     move() {
@@ -40,20 +48,31 @@ class Beetle {
         }
         return true;
     }
-
+    
     takeDamage() {
         // Уменьшаем жизнь на значение attackPower пользователя
         this.life -= currentUser.attackPower;
         if (this.life <= 0) {
-            this.element.remove();
+
+            this.isDead = true;
+            this.speed = 0;
+            if(this.isRare){
+                this.element.style.backgroundImage = `url('Sprite/bug/dead_bug_rare.png')`;
+            }
+            else{
+                this.element.style.backgroundImage = `url('Sprite/bug/dead_bug.png')`;
+            }
             if (this.isRare) {
                 currentUser.diamond += this.price;
             } else {
                 currentUser.gold += this.price;
             }
+            setTimeout(() => {
+                this.element.remove();
+                checkBeetles();
+            }, 1000);
+
             updateUI();
-            // ! сохраняем результат
-            //saveGameState();
 
         } else {
             this.element.innerText = this.life;
