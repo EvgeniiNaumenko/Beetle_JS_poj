@@ -8,6 +8,12 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+
+    background-image: url(./img/backgroung.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
 }
 
 .header {
@@ -25,18 +31,29 @@ body {
     height: calc(100vh - 42px);
 }
 .shop {
-    width: 150px;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background: #ddd;
-    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background-image: url(./img/rack.png);
+}
+.right-shop .shop-item {
+    margin-right: 100px;
+}
+.left-shop .shop-item {
+    margin-left: 100px;
 }
 .game-field {
     position: relative;
-    width: 70vw;
+    width: 60vw;
     height: 500px;
-    background: lightgreen;
+    background: rgba(187, 187, 187, 0.71);
+    border-width: 0.5rem;
+    border-style: dashed solid;
+    border-color: rgba(232, 232, 232, 0.85);
     overflow: hidden;
 }
 .beetle {
