@@ -4,7 +4,12 @@ body {
     align-items: center;
     text-align: center;
     font-family: Arial, sans-serif;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
+
 .header {
     width: 100%;
     display: flex;
@@ -17,7 +22,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    height: calc(100vh - 42px);
 }
 .shop {
     width: 150px;
@@ -29,16 +34,31 @@ body {
 }
 .game-field {
     position: relative;
-    width: 500px;
+    width: 70vw;
     height: 500px;
     background: lightgreen;
     overflow: hidden;
 }
 .beetle {
     position: absolute;
-    text-align: top;
+    text-align: center;
     line-height: 30px;
     color: white;
     font-weight: bold;
     cursor: pointer;
+    /*pointer-events: none;*/
+    user-select: none;
+}
+
+.beetle-dead {
+    animation: death 1s forwards;
+}
+
+@keyframes death {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
