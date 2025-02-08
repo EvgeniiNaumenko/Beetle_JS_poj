@@ -20,6 +20,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background: #333;
     color: white;
     padding: 10px;
@@ -31,6 +32,8 @@ body {
     height: calc(100vh - 42px);
 }
 .shop {
+    color: white;
+    font-size: 20px;
     width: 500px;
     height: 500px;
     display: flex;
@@ -40,15 +43,61 @@ body {
     gap: 30px;
     background-image: url(./img/rack.png);
 }
+
+.shop .shop-item button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0px 12px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.shop .shop-item button:hover {
+    background-color: #218838;
+}
+
+.shop .shop-item button:active {
+    background-color: #1e7e34;
+    transform: scale(0.95);
+}
+
 .right-shop .shop-item {
+    display: flex;
     margin-right: 100px;
 }
+.right-shop img{
+    flex : 0 0 auto;
+    max-width: 100%;
+    max-height: 100px;
+    width: auto;
+    height: calc(23.2px * 3);
+    object-fit: contain;
+}
+.left-shop img{
+    flex : 0 0 auto;
+    max-width: 100%;
+    max-height: 100px;
+    width: auto;
+    height: calc(23.2px * 3);
+    object-fit: contain;
+}
 .left-shop .shop-item {
+    display: flex;
+    margin-left: 100px;
+}
+.right-shop {
+    margin-right: 100px;
+}
+.left-shop {
     margin-left: 100px;
 }
 .game-field {
     position: relative;
-    width: 60vw;
+    width: 50vw;
     height: 500px;
     background: rgba(187, 187, 187, 0.71);
     border-width: 0.5rem;
@@ -71,6 +120,27 @@ body {
     animation: death 1s forwards;
 }
 
+#muteButton {
+    background-color: #dc3545; /* Красный цвет (как предупреждение) */
+    color: white; /* Белый текст */
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#muteButton:hover {
+    background-color: #c82333; /* Темно-красный при наведении */
+}
+
+#muteButton:active {
+    background-color: #a71d2a;
+    transform: scale(0.95); /* Эффект нажатия */
+}
+
 @keyframes death {
     from {
         opacity: 1;
@@ -79,3 +149,4 @@ body {
         opacity: 0;
     }
 }
+
