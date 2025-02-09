@@ -40,7 +40,7 @@ class Beetle {
         this.updatePosition();
 
         // Если центр жука пересекает правую границу
-        if (this.centerX > 500) {
+        if (this.centerX > document.getElementById("game-field").width) {
             this.element.remove();
             // Удаляем жука из массива
             beetles = beetles.filter(b => b !== this); 
