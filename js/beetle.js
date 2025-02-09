@@ -59,6 +59,7 @@ class Beetle {
             this.isDead = true;
             this.speed = 0;
             this.element.style.pointerEvents = "none";
+            this.element.classList.add("beetle-dead");
 
             if(this.isRare){
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug_rare.png')`;
@@ -69,6 +70,7 @@ class Beetle {
                 currentUser.gold += this.price;
             }
             currentUser.score+=this.scoreCount;
+
             setTimeout(() => {
                 this.element.remove();
                 checkBeetles();
