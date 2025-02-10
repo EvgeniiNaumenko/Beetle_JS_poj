@@ -3,10 +3,27 @@ const backgroundMusic = new Audio('Audio/background_sound.mp3');
 backgroundMusic.loop = true;
 backgroundMusic.volume = currentUser.volume;
 
+
 document.getElementById("volume").addEventListener("input", (event) => {
     // Устанавливаем громкость музыки в зависимости от ползунка
     currentUser.volume = event.target.value;
     backgroundMusic.volume = currentUser.volume;
+});
+
+// Обработчик для кнопки включения мзыки
+document.getElementById("backgroundMusicButton").addEventListener("click", () => {
+    if(musicPlay == true)
+    {
+        backgroundMusic.pause()
+        backgroundMusic.currentTime = 0;
+        musicPlay = false;
+    }
+    else
+    {
+        backgroundMusic.play().then(() => {
+            musicPlay = true;
+        });
+    }
 });
 
 // Обработчик для кнопки отключения звука

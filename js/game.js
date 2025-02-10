@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ! загружаем рзультат
     //loadGameState();
-    backgroundMusic.play();
+    //backgroundMusic.play();
     updateUI();
     checkBeetles();
     animateBeetles(); 

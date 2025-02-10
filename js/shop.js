@@ -1,5 +1,5 @@
 //левые три предмета (кнопка)
-let leftItem1 = document.querySelector("#left-shop .shop-item:nth-child(1) .buy-button");
+let leftItem1 = document.querySelector("#left-shop .shop-item:nth-child(1) .buy-button"); 
 let leftItem2 = document.querySelector("#left-shop .shop-item:nth-child(2) .buy-button");
 let leftItem3 = document.querySelector("#left-shop .shop-item:nth-child(3) .buy-button");
 //правые три предмета (кнопка)
@@ -8,20 +8,28 @@ let rightItem2 = document.querySelector("#left-shop .shop-item:nth-child(2) .buy
 let rightItem3 = document.querySelector("#left-shop .shop-item:nth-child(3) .buy-button");
 //первый предмет левого магазина
 
+//количество жуков
 leftItem1.addEventListener('click', function(){
-    if(currentUser.gold > price * currentUser.leftShopItem1Lvl)
-    {
-        buyItemSound();
-        currentUser.gold -= price * currentUser.leftShopItem1Lvl;
-        currentUser.leftShopItem1Lvl += 1;
-        currentUser.beetlesCount+= 1;
-        updateUI();
+    if(currentUser.leftShopItem1Lvl <= 20){
+        if(currentUser.gold > price * currentUser.leftShopItem1Lvl)
+            {
+                buyItemSound();
+                currentUser.gold -= price * currentUser.leftShopItem1Lvl;
+                currentUser.leftShopItem1Lvl += 1;
+                currentUser.beetlesCount+= 1;
+                updateUI();
+            }
+            else{
+                cantBuyItemSound()
+            }
     }
-    else{
-        cantBuyItemSound()
+    else {
+        
     }
+
 })
 
+//цена и хп жуков
 leftItem2.addEventListener('click', function(){
     //TODO: подумай, может быть сделать это максимальным уровнем до 20?
     if(currentUser.gold > price * currentUser.leftShopItem2Lvl * 2)
@@ -79,6 +87,7 @@ leftItem2.addEventListener('click', function(){
     }
 })
 
+// редкость жуков
 leftItem3.addEventListener('click', function(){
     if(currentUser.diamond > price * currentUser.leftShopItem3Lvl)
     {

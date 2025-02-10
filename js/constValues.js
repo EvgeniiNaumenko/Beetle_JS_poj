@@ -2,6 +2,8 @@ let beetles = [];
 
 const price = 10;
 
+const musicPlay = false;
+
 const beetleStats = {
     size : 40,
     speed : 1,
