@@ -31,8 +31,9 @@ class Beetle {
     updatePosition() {
         this.element.style.left = `${this.x}px`;
         this.element.style.top = `${this.y}px`;
-        this.centerX = this.x / 2;  // Обновляем центр по оси X
-        this.centerY = this.y / 2;  // Обновляем центр по оси Y
+        this.centerX = this.x + this.size / 2;   // Обновляем центр по оси X
+        this.centerY = this.y + this.size / 2;   // Обновляем центр по оси Y
+
     }
 
     move() {
@@ -40,7 +41,7 @@ class Beetle {
         this.updatePosition();
 
         // Если центр жука пересекает правую границу
-        if (this.centerX > document.getElementById("game-field").width) {
+        if (this.x > document.getElementById("game-field").offsetWidth + this.size) {
             this.element.remove();
             // Удаляем жука из массива
             beetles = beetles.filter(b => b !== this); 
@@ -49,11 +50,18 @@ class Beetle {
         }
         return true;
     }
-    
+
     takeDamage() {
         // Уменьшаем жизнь на значение attackPower пользователя
         this.life -= currentUser.attackPower;
         punchSound();
+        if (superFingerActive) {
+            currentUser.attackPower = originalAttackPower
+            superFingerActive = false;
+            document.body.style.cursor = 'auto';
+            document.querySelector("#right-shop .shop-item:nth-child(2) .buy-button").disabled = false;
+            updateUI();
+        }
         if (this.life <= 0) {
 
             this.isDead = true;

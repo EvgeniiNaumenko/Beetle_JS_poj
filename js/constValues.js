@@ -1,4 +1,8 @@
-let beetles = []; 
+let beetles = [];
+
+let superFingerActive = false;
+let superFingerPrice = 1;
+let originalAttackPower = 0;
 
 const price = 10;
 
