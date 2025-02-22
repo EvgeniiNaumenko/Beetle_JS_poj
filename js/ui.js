@@ -22,6 +22,9 @@ function updateUI() {
     // Правый второй
     document.querySelector("#right-shop .shop-item:nth-child(2) .price").innerText = superFingerPrice;
 
+    // Правый третий
+    document.querySelector("#right-shop .shop-item:nth-child(3) .price").innerText = sprayStats.price;
+
     // Если редкость достигла максимума, скрываем кнопку и показываем сообщение
     if (beetleStats.rareChance >= 0.5) {
         document.querySelector("#right-shop .shop-item:nth-child(1) .buy-button").disabled = true;

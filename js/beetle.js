@@ -64,6 +64,7 @@ class Beetle {
         }
         if (this.life <= 0) {
 
+            this.life = 0; // чтобы пользователь не видел отрицательных хп
             this.isDead = true;
             this.speed = 0;
             this.element.style.pointerEvents = "none";

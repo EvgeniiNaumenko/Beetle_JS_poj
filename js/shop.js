@@ -107,13 +107,11 @@ rightItem1.addEventListener('click', function(){
 });
 
 rightItem2.addEventListener('click', function() {
-    if (currentUser.gold >= 500 && !superFingerActive) {
+    if (currentUser.diamond >= superFingerPrice && !superFingerActive) {
         buyItemSound();
-        currentUser.gold -= superFingerPrice;
+        currentUser.diamond -= superFingerPrice;
         superFingerActive = true;
-        superFingerPrice += superFingerPrice;
-
-        updateUI();
+        superFingerPrice *= 1.75;
 
         // прикольный курсор))
         document.documentElement.style.cursor = 'url(../Sprite/UI/fingeer-_1_.cur) 0 0, auto';
@@ -126,8 +124,21 @@ rightItem2.addEventListener('click', function() {
 
         document.querySelector("#right-shop .shop-item:nth-child(1) .price").innerText = superFingerPrice;
 
+        updateUI();
     } else {
         cantBuyItemSound();
     }
 });
 
+rightItem3.addEventListener('click', function() {
+    if (currentUser.diamond >= sprayStats.price && !sprayActive) {
+        buyItemSound();
+        currentUser.diamond -= sprayStats.price;
+        sprayStats.price *= 2
+
+        updateUI();
+        activateSpray()
+    } else {
+        cantBuyItemSound();
+    }
+})
