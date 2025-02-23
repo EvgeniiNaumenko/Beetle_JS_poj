@@ -1,45 +1,57 @@
-// Создаем объект Audio с указанием пути к музыкальному файлу
+// фоновая музыка
 const backgroundMusic = new Audio('Audio/background_sound.mp3');
 backgroundMusic.loop = true;
 backgroundMusic.volume = currentUser.volume;
 
-
+// ползунок
 document.getElementById("volume").addEventListener("input", (event) => {
-    // Устанавливаем громкость музыки в зависимости от ползунка
     currentUser.volume = event.target.value;
     backgroundMusic.volume = currentUser.volume;
 });
 
-// Обработчик для кнопки включения мзыки
-document.getElementById("backgroundMusicButton").addEventListener("click", () => {
-    if(musicPlay == true)
-    {
-        backgroundMusic.pause()
-        backgroundMusic.currentTime = 0;
+const musicOnImg = "Sprite/icon/music-alt.png";   // SVG картинка для включенной музыки
+const musicOffImg = "Sprite/icon/music-slash.png"; // SVG картинка для выключенной музыки
+const soundOnImg = "Sprite/icon/volume.png";   // SVG картинка для включенного звука
+const soundOffImg = "Sprite/icon/volume-mute.png"; // SVG картинка для выключенного звука
+
+const backgroundMusicButton = document.getElementById("backgroundMusicButton");
+const muteButton = document.getElementById("muteButton");
+
+// Устанавливаем начальные изображения
+backgroundMusicButton.src = musicOffImg;
+muteButton.src = soundOnImg;
+
+// Обработчик для кнопки фоновой музыки
+backgroundMusicButton.addEventListener("click", () => {
+    if (musicPlay) {
+        backgroundMusic.pause();
         musicPlay = false;
-    }
-    else
-    {
-        backgroundMusic.play().then(() => {
-            musicPlay = true;
-        });
+        backgroundMusicButton.src = musicOffImg; // Меняем картинку на выключенную музыку
+    } else {
+        backgroundMusic.play()
+            .then(() => {
+                musicPlay = true;
+                backgroundMusicButton.src = musicOnImg; // Меняем картинку на включенную музыку
+            })
+            .catch(error => {
+                console.error("Ошибка при воспроизведении музыки:", error);
+            });
     }
 });
 
 // Обработчик для кнопки отключения звука
-document.getElementById("muteButton").addEventListener("click", () => {
-    // Если звук включен, выключаем его
+muteButton.addEventListener("click", () => {
     if (currentUser.volume > 0) {
         currentUser.volume = 0;
         backgroundMusic.volume = 0;
-        document.getElementById("muteButton").textContent = "Включить звук";
-    }
-    else {
-        currentUser.volume = document.getElementById("volume").value;  // Включаем звук обратно
-        backgroundMusic.volume = document.getElementById("volume").value;  // Включаем звук обратно
-        document.getElementById("muteButton").textContent = "Отключить звук";
+        muteButton.src = soundOffImg; // Меняем картинку на выключенный звук
+    } else {
+        currentUser.volume = document.getElementById("volume").value;  
+        backgroundMusic.volume = document.getElementById("volume").value;  
+        muteButton.src = soundOnImg; // Меняем картинку на включенный звук
     }
 });
+
 
 
 //успешная покупка
@@ -57,6 +69,12 @@ function cantBuyItemSound() {
 //тычка
 function punchSound() {
     const sound = new Audio("Audio/punch_sound.mp3");
+    sound.volume = currentUser.volume;
+    sound.play();
+}
+//спрей
+function spraySound() {
+    const sound = new Audio("Audio/gas_sound.mp3");
     sound.volume = currentUser.volume;
     sound.play();
 }

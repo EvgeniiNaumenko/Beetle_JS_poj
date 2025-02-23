@@ -8,7 +8,6 @@ function saveGameState() {
         beetlesCount: currentUser.beetlesCount,
     };
 
-    // Сохраняем данные в localStorage
     localStorage.setItem('gameState', JSON.stringify(gameState));
 }
 

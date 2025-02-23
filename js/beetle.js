@@ -40,7 +40,7 @@ class Beetle {
         this.updatePosition();
 
         // Если центр жука пересекает правую границу
-        if (this.centerX > document.getElementById("game-field").width) {
+        if (this.centerX > document.getElementById("game-field").offsetWidth) {
             this.element.remove();
             // Удаляем жука из массива
             beetles = beetles.filter(b => b !== this); 
@@ -50,34 +50,32 @@ class Beetle {
         return true;
     }
     
-    takeDamage() {
-        // Уменьшаем жизнь на значение attackPower пользователя
-        this.life -= currentUser.attackPower;
+    takeDamage(damage = currentUser.attackPower) {
+        this.life -= damage;
         punchSound();
+        
         if (this.life <= 0) {
-
             this.isDead = true;
             this.speed = 0;
             this.element.style.pointerEvents = "none";
             this.element.classList.add("beetle-dead");
-
-            if(this.isRare){
+    
+            if (this.isRare) {
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug_rare.png')`;
                 currentUser.diamond += this.price;
-            }
-            else{
+            } else {
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug.png')`;
                 currentUser.gold += this.price;
             }
-            currentUser.score+=this.scoreCount;
-
+            
+            currentUser.score += this.scoreCount;
+    
             setTimeout(() => {
                 this.element.remove();
                 checkBeetles();
             }, 1000);
-
+    
             updateUI();
-
         } else {
             this.element.innerText = this.life;
         }
