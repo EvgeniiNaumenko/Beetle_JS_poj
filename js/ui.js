@@ -15,7 +15,7 @@ function updateUI() {
     document.querySelector("#left-shop .shop-item:nth-child(1) .price").innerText = price * currentUser.leftShopItem1Lvl;
     // Левый второй
     document.querySelector("#left-shop .shop-item:nth-child(2) .level").innerText = currentUser.leftShopItem2Lvl;
-    document.querySelector("#left-shop .shop-item:nth-child(2) .price").innerText = price * currentUser.leftShopItem2Lvl * 2;
+    document.querySelector("#left-shop .shop-item:nth-child(2) .price").innerText = price * currentUser.leftShopItem2Lvl * 3;
     // Левый третий
     document.querySelector("#left-shop .shop-item:nth-child(3) .level").innerText = currentUser.leftShopItem3Lvl;
     document.querySelector("#left-shop .shop-item:nth-child(3) .price").innerText = price * currentUser.leftShopItem3Lvl * 3;

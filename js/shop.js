@@ -10,17 +10,16 @@ let rightItem3 = document.querySelector("#right-shop .shop-item:nth-child(3) .bu
 
 //количество жуков
 leftItem1.addEventListener('click', function(){
-
-    if(currentUser.gold >= price * currentUser.leftShopItem1Lvl)
+    if(currentUser.leftShopItem1Lvl >= shopMaxLVLs.leftShop1){
+            this.style.display = "none"; 
+        }
+    else if(currentUser.gold >= price * currentUser.leftShopItem1Lvl)
     {
         buyItemSound();
         currentUser.gold -= price * currentUser.leftShopItem1Lvl;
         currentUser.leftShopItem1Lvl += 1;
         currentUser.beetlesCount+= 1;
         updateUI();
-        if(currentUser.leftShopItem1Lvl === shopMaxLVLs.leftShop1){
-            this.style.display = "none";  
-        }
     }
     else{
         cantBuyItemSound()
@@ -29,10 +28,13 @@ leftItem1.addEventListener('click', function(){
 
 //цена и хп жуков
 leftItem2.addEventListener('click', function(){
-    if(currentUser.gold >= price * currentUser.leftShopItem2Lvl * 2)
+    if(currentUser.leftShopItem2Lvl >= shopMaxLVLs.leftShop2){
+            this.style.display = "none";
+        }
+    else if(currentUser.gold >= price * currentUser.leftShopItem2Lvl * 3)
     {
         buyItemSound();
-        currentUser.gold -= price * currentUser.leftShopItem2Lvl * 2;
+        currentUser.gold -= price * currentUser.leftShopItem2Lvl * 3;
 
         beetleStats.life *=2;
         beetleStats.life = Math.ceil(beetleStats.life);
@@ -52,9 +54,6 @@ leftItem2.addEventListener('click', function(){
         beetleStats.price += beetleStats.life * 2
 
         currentUser.leftShopItem2Lvl += 1;
-        if(currentUser.leftShopItem2Lvl === shopMaxLVLs.leftShop2){
-            this.style.display = "none";  
-        }
         updateUI();
     }
     else{
@@ -64,15 +63,15 @@ leftItem2.addEventListener('click', function(){
 
 // редкость жуков
 leftItem3.addEventListener('click', function(){
-    if(currentUser.diamond >= price * currentUser.leftShopItem3Lvl*3)
+    if(currentUser.leftShopItem3Lvl >= shopMaxLVLs.leftShop3){
+            this.style.display = "none"; 
+        }
+    else if(currentUser.diamond >= price * currentUser.leftShopItem3Lvl*3)
     {
         buyItemSound();
         currentUser.diamond -= price * currentUser.leftShopItem3Lvl*3;
         currentUser.leftShopItem3Lvl += 1;
         beetleStats.rareChance+=0.01;
-        if(currentUser.leftShopItem3Lvl === shopMaxLVLs.leftShop3){
-            this.style.display = "none";  
-        }
         updateUI();
     }
     else{
@@ -84,7 +83,10 @@ leftItem3.addEventListener('click', function(){
 // ПРАВЫЙ МАГАЗИН
 // сила нашей тычки
 rightItem1.addEventListener('click', function(){
-    if(currentUser.gold >= price * currentUser.rightShopItem1Lvl*2)
+    if(currentUser.rightShopItem1Lvl === shopMaxLVLs.rightShop1){
+            this.style.display = "none";  
+        }
+    else if(currentUser.gold >= price * currentUser.rightShopItem1Lvl*2)
     {
         buyItemSound();
         currentUser.gold -= price * currentUser.rightShopItem1Lvl*2;
@@ -97,9 +99,6 @@ rightItem1.addEventListener('click', function(){
             currentUser.attackPower *= 1.07;
         }
         currentUser.attackPower = Math.ceil(currentUser.attackPower);
-        if(currentUser.rightShopItem1Lvl === shopMaxLVLs.rightShop1){
-            this.style.display = "none";  
-        }
         updateUI();
     }
     else{
@@ -109,7 +108,10 @@ rightItem1.addEventListener('click', function(){
 
 // кулак(тапок) ванпачмена
 rightItem2.addEventListener('click', function(){
-    if(currentUser.diamond >= price * currentUser.rightShopItem2Lvl*4)
+    if(currentUser.rightShopItem2Lvl >= shopMaxLVLs.rightShop2){
+            this.style.display = "none"; 
+        }
+    else if(currentUser.diamond >= price * currentUser.rightShopItem2Lvl*4)
     {
         buyItemSound();
         currentUser.diamond -= price * currentUser.rightShopItem2Lvl*4;
@@ -118,9 +120,6 @@ rightItem2.addEventListener('click', function(){
         currentUser.onePunchCooldown -=2;
         currentUser.onePunchBonus +=1;
         currentUser.attackPower = Math.ceil(currentUser.attackPower);
-        if(currentUser.rightShopItem2Lvl === shopMaxLVLs.rightShop2){
-            this.style.display = "none";  
-        }
         updateUI();
     }
      else{
@@ -129,7 +128,10 @@ rightItem2.addEventListener('click', function(){
 });
 // облако-спрей отрава
 rightItem3.addEventListener('click', function(){
-    if(currentUser.diamond >= price * currentUser.rightShopItem3Lvl*5)
+    if(currentUser.rightShopItem3Lvl >= shopMaxLVLs.rightShop3){
+            this.style.display = "none";  
+        }
+    else if(currentUser.diamond >= price * currentUser.rightShopItem3Lvl*5)
     {
         buyItemSound();
         currentUser.diamond -= price * currentUser.rightShopItem3Lvl*5;
@@ -139,9 +141,6 @@ rightItem3.addEventListener('click', function(){
         currentUser.sprayAttackRange += 20;
         currentUser.sprayAttackCooldown -=3;
         currentUser.sprayAttackSpeed -=50;
-        if(currentUser.rightShopItem3Lvl === shopMaxLVLs.rightShop3){
-            this.style.display = "none";  
-        }
         updateUI();
     } else {
         cantBuyItemSound();

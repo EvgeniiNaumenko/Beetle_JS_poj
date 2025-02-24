@@ -19,8 +19,8 @@ const shopMaxLVLs ={
     leftShop2: 20,
     leftShop3: 20,
     rightShop1: 20,
-    rightShop2: 10,
-    rightShop3: 10,
+    rightShop2: 20,
+    rightShop3: 20,
 }
 
 //пользователь
