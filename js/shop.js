@@ -29,10 +29,10 @@ leftItem1.addEventListener('click', function(){
 
 //цена и хп жуков
 leftItem2.addEventListener('click', function(){
-    if(currentUser.gold >= price * currentUser.leftShopItem2Lvl * 2)
+    if(currentUser.gold >= price * currentUser.leftShopItem2Lvl * 3)
     {
         buyItemSound();
-        currentUser.gold -= price * currentUser.leftShopItem2Lvl * 2;
+        currentUser.gold -= price * currentUser.leftShopItem2Lvl * 3;
 
         beetleStats.life *=2;
         beetleStats.life = Math.ceil(beetleStats.life);
