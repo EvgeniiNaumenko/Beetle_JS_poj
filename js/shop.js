@@ -141,6 +141,9 @@ rightItem2.addEventListener('click', function(){
         }
         updateUI();
     }
+     else{
+        cantBuyItemSound()
+    }
 })
 // облако-спрей отрава
 rightItem3.addEventListener('click', function(){
