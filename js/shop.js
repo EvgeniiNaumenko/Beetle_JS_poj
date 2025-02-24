@@ -29,7 +29,7 @@ leftItem1.addEventListener('click', function(){
     else{
         cantBuyItemSound()
     }
-})
+});
 
 //цена и хп жуков
 leftItem2.addEventListener('click', function(){
@@ -64,7 +64,7 @@ leftItem2.addEventListener('click', function(){
     else{
         cantBuyItemSound()
     }
-})
+});
 
 // редкость жуков
 leftItem3.addEventListener('click', function(){
@@ -82,7 +82,7 @@ leftItem3.addEventListener('click', function(){
     else{
         cantBuyItemSound()
     }
-})
+});
 
 
 // ПРАВЫЙ МАГАЗИН
@@ -93,14 +93,23 @@ rightItem1.addEventListener('click', function(){
         buyItemSound();
         currentUser.gold -= price * currentUser.rightShopItem1Lvl*2;
         currentUser.rightShopItem1Lvl += 1;
-
-        currentUser.leftShopItem2Lvl += 1;
+        if (currentUser.attackPower <= 500) {
+            currentUser.attackPower *= 1.3;
+        } else if (currentUser.attackPower <= 2000) {
+            currentUser.attackPower *= 1.1;
+        } else {
+            currentUser.attackPower *= 1.07;
+        }
+        currentUser.attackPower = Math.ceil(currentUser.attackPower);
+        if(currentUser.rightShopItem1Lvl === shopMaxLVLs.rightShop1){
+            this.style.display = "none";  
+        }
         updateUI();
     }
     else{
         cantBuyItemSound()
     }
-})
+});
 
 // кулак(тапок) ванпачмена
 rightItem2.addEventListener('click', function(){
@@ -119,9 +128,9 @@ rightItem2.addEventListener('click', function(){
         updateUI();
     }
      else{
-        cantBuyItemSound()
+        cantBuyItemSound();
     }
-})
+});
 // облако-спрей отрава
 rightItem3.addEventListener('click', function(){
     if(currentUser.diamond >= price * currentUser.rightShopItem3Lvl*5)
@@ -143,15 +152,3 @@ rightItem3.addEventListener('click', function(){
     }
 });
 
-rightItem3.addEventListener('click', function() {
-    if (currentUser.diamond >= sprayStats.price && !sprayActive) {
-        buyItemSound();
-        currentUser.diamond -= sprayStats.price;
-        sprayStats.price *= 2
-
-        updateUI();
-        activateSpray()
-    } else {
-        cantBuyItemSound();
-    }
-});
