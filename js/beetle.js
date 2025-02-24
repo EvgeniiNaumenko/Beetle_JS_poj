@@ -31,8 +31,9 @@ class Beetle {
     updatePosition() {
         this.element.style.left = `${this.x}px`;
         this.element.style.top = `${this.y}px`;
-        this.centerX = this.x / 2;  // Обновляем центр по оси X
-        this.centerY = this.y / 2;  // Обновляем центр по оси Y
+        this.centerX = this.x + this.size / 2;   // Обновляем центр по оси X
+        this.centerY = this.y + this.size / 2;   // Обновляем центр по оси Y
+
     }
 
     move() {
@@ -48,8 +49,7 @@ class Beetle {
             return false;
         }
         return true;
-    }
-    
+    } 
     takeDamage(damage = currentUser.attackPower) {
         this.life -= damage;
         punchSound();

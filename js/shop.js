@@ -94,6 +94,19 @@ rightItem1.addEventListener('click', function(){
         currentUser.gold -= price * currentUser.rightShopItem1Lvl*2;
         currentUser.rightShopItem1Lvl += 1;
 
+        currentUser.leftShopItem2Lvl += 1;
+        updateUI();
+    }
+    else{
+        cantBuyItemSound()
+    }
+})
+
+leftItem3.addEventListener('click', function(){
+    if(currentUser.gold > price * currentUser.leftShopItem3Lvl * 2) {
+        buyItemSound();
+        currentUser.gold -= price * currentUser.leftShopItem3Lvl * 2;
+
         if (currentUser.attackPower <= 500) {
             currentUser.attackPower *= 1.3;
         } else if (currentUser.attackPower <= 2000) {
@@ -128,10 +141,8 @@ rightItem2.addEventListener('click', function(){
         }
         updateUI();
     }
-    else{
-        cantBuyItemSound()
-    }
 })
+rightItem1.addEventListener('click', function(){
 
 // облако-спрей отрава
 rightItem3.addEventListener('click', function(){
@@ -149,8 +160,44 @@ rightItem3.addEventListener('click', function(){
             this.style.display = "none";  
         }
         updateUI();
+    } else {
+        cantBuyItemSound();
     }
-    else{
-        cantBuyItemSound()
+});
+
+rightItem2.addEventListener('click', function() {
+    if (currentUser.diamond >= superFingerPrice && !superFingerActive) {
+        buyItemSound();
+        currentUser.diamond -= superFingerPrice;
+        superFingerActive = true;
+        superFingerPrice *= 1.75;
+
+        // прикольный курсор))
+        document.documentElement.style.cursor = 'url(../Sprite/UI/fingeer-_1_.cur) 0 0, auto';
+
+        originalAttackPower = currentUser.attackPower;
+        currentUser.attackPower = Number.MAX_SAFE_INTEGER; // максимальный урон
+
+        // если палец активный - нельзя еще покупать
+        document.querySelector("#right-shop .shop-item:nth-child(2) .buy-button").disabled = true;
+
+        document.querySelector("#right-shop .shop-item:nth-child(1) .price").innerText = superFingerPrice;
+
+        updateUI();
+    } else {
+        cantBuyItemSound();
+    }
+});
+
+rightItem3.addEventListener('click', function() {
+    if (currentUser.diamond >= sprayStats.price && !sprayActive) {
+        buyItemSound();
+        currentUser.diamond -= sprayStats.price;
+        sprayStats.price *= 2
+
+        updateUI();
+        activateSpray()
+    } else {
+        cantBuyItemSound();
     }
 });

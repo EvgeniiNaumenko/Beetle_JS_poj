@@ -128,7 +128,7 @@ body {
 }
 .game-field {
     position: relative;
-    width: 50vw;
+    width: 45vw;
     height: 500px;
     background: rgba(187, 187, 187, 0.71);
     border-width: 0.5rem;
@@ -181,7 +181,6 @@ body {
         opacity: 0;
     }
 }
-
 
 .user-stats {
     display: flex;
@@ -272,7 +271,6 @@ body {
     display: block;
 }
 
-
 .spray-effect {
     position: absolute;
     top: 0;
@@ -282,7 +280,6 @@ body {
     background: url("Sprite/UI/spray_effect_1.png");
     animation: sprayAnimation 1s infinite alternate;
     pointer-events: none;
-
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -294,10 +291,10 @@ body {
         opacity: 0.5;
         transform: scale(0.8);
     }
-
     100% {
         background-image: url('Sprite/UI/spray_effect_2.png');
         opacity: 0.8;
         transform: scale(0.9);
     }
 }
+
