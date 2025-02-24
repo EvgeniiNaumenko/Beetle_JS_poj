@@ -142,8 +142,6 @@ rightItem2.addEventListener('click', function(){
         updateUI();
     }
 })
-rightItem1.addEventListener('click', function(){
-
 // облако-спрей отрава
 rightItem3.addEventListener('click', function(){
     if(currentUser.diamond >= price * currentUser.rightShopItem3Lvl*5)
