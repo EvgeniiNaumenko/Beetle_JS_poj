@@ -29,5 +29,5 @@ function updateUI() {
     document.querySelector("#right-shop .shop-item:nth-child(3) .level").innerText = currentUser.rightShopItem3Lvl;
     document.querySelector("#right-shop .shop-item:nth-child(3) .price").innerText = price * currentUser.rightShopItem3Lvl*5;
     // ! сохраняем результат
-    //saveGameState();
+    saveGameState();
 }
