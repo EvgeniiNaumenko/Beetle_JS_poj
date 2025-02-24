@@ -12,7 +12,6 @@ let rightItem3 = document.querySelector("#right-shop .shop-item:nth-child(3) .bu
 leftItem1.addEventListener('click', function(){
     if(currentUser.leftShopItem1Lvl >= shopMaxLVLs.leftShop1){
             this.style.display = "none"; 
-            return;
         }
     else if(currentUser.gold >= price * currentUser.leftShopItem1Lvl)
     {
@@ -31,7 +30,6 @@ leftItem1.addEventListener('click', function(){
 leftItem2.addEventListener('click', function(){
     if(currentUser.leftShopItem2Lvl >= shopMaxLVLs.leftShop2){
             this.style.display = "none";
-            return;
         }
     else if(currentUser.gold >= price * currentUser.leftShopItem2Lvl * 3)
     {
@@ -67,7 +65,6 @@ leftItem2.addEventListener('click', function(){
 leftItem3.addEventListener('click', function(){
     if(currentUser.leftShopItem3Lvl >= shopMaxLVLs.leftShop3){
             this.style.display = "none"; 
-            return;
         }
     else if(currentUser.diamond >= price * currentUser.leftShopItem3Lvl*3)
     {
@@ -88,7 +85,6 @@ leftItem3.addEventListener('click', function(){
 rightItem1.addEventListener('click', function(){
     if(currentUser.rightShopItem1Lvl === shopMaxLVLs.rightShop1){
             this.style.display = "none";  
-            return;
         }
     else if(currentUser.gold >= price * currentUser.rightShopItem1Lvl*2)
     {
@@ -114,7 +110,6 @@ rightItem1.addEventListener('click', function(){
 rightItem2.addEventListener('click', function(){
     if(currentUser.rightShopItem2Lvl >= shopMaxLVLs.rightShop2){
             this.style.display = "none"; 
-            return;
         }
     else if(currentUser.diamond >= price * currentUser.rightShopItem2Lvl*4)
     {
@@ -135,7 +130,6 @@ rightItem2.addEventListener('click', function(){
 rightItem3.addEventListener('click', function(){
     if(currentUser.rightShopItem3Lvl >= shopMaxLVLs.rightShop3){
             this.style.display = "none";  
-            return:
         }
     else if(currentUser.diamond >= price * currentUser.rightShopItem3Lvl*5)
     {
