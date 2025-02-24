@@ -60,7 +60,7 @@ document.getElementById("ability-1").addEventListener("click", () => {
             updateUI();
         },
         function() {
-            currentUser.attackPower /= currentUser.onePunchBonus;
+            currentUser.attackPower = Math.ceil(currentUser.attackPower/currentUser.onePunchBonus);
             updateUI();
         },
     );
