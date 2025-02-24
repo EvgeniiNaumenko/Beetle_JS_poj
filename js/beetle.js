@@ -16,11 +16,11 @@ class Beetle {
         // Устанавливаем размер и фон
         this.element.style.width = `${this.size}px`;
         this.element.style.height = `${this.size}px`;
-        this.element.style.backgroundImage = `url(Sprite/bug/alive_bug.png)`;
+        this.element.style.backgroundImage = `url(Sprite/Bug/alive_bug.png)`;
         this.element.style.backgroundSize = "cover";
         if (this.isRare) {
             this.element.classList.add("rare");
-            this.element.style.backgroundImage = `url(Sprite/bug/alive_bug_rare.png)`;
+            this.element.style.backgroundImage = `url(Sprite/Bug/alive_bug_rare.png)`;
         }
         this.element.innerText = this.life;
         document.getElementById("game-field").appendChild(this.element);
@@ -61,10 +61,10 @@ class Beetle {
             this.element.classList.add("beetle-dead");
     
             if (this.isRare) {
-                this.element.style.backgroundImage = `url('Sprite/bug/dead_bug_rare.png')`;
+                this.element.style.backgroundImage = `url('Sprite/Bug/dead_bug_rare.png')`;
                 currentUser.diamond += this.price;
             } else {
-                this.element.style.backgroundImage = `url('Sprite/bug/dead_bug.png')`;
+                this.element.style.backgroundImage = `url('Sprite/Bug/dead_bug.png')`;
                 currentUser.gold += this.price;
             }
             
