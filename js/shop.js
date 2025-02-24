@@ -8,10 +8,6 @@ let rightItem2 = document.querySelector("#right-shop .shop-item:nth-child(2) .bu
 let rightItem3 = document.querySelector("#right-shop .shop-item:nth-child(3) .buy-button");
 //первый предмет левого магазина
 
-//Активные скилы
-let activeSkill1 = document.getElementById("activeSkill1");
-
-
 //количество жуков
 leftItem1.addEventListener('click', function(){
 
@@ -62,7 +58,7 @@ leftItem2.addEventListener('click', function(){
         updateUI();
     }
     else{
-        cantBuyItemSound()
+        cantBuyItemSound();
     }
 });
 
@@ -80,7 +76,7 @@ leftItem3.addEventListener('click', function(){
         updateUI();
     }
     else{
-        cantBuyItemSound()
+        cantBuyItemSound();
     }
 });
 
@@ -107,7 +103,7 @@ rightItem1.addEventListener('click', function(){
         updateUI();
     }
     else{
-        cantBuyItemSound()
+        cantBuyItemSound();
     }
 });
 
@@ -151,4 +147,3 @@ rightItem3.addEventListener('click', function(){
         cantBuyItemSound();
     }
 });
-
