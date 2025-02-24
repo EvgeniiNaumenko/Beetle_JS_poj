@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadGameState();
     setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
     }, 1500);
     updateUI();
     checkBeetles();
