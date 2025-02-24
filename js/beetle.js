@@ -41,7 +41,7 @@ class Beetle {
         this.updatePosition();
 
         // Если центр жука пересекает правую границу
-        if (this.x > document.getElementById("game-field").offsetWidth + this.size) {
+        if (this.centerX > document.getElementById("game-field").offsetWidth) {
             this.element.remove();
             // Удаляем жука из массива
             beetles = beetles.filter(b => b !== this); 
@@ -49,44 +49,33 @@ class Beetle {
             return false;
         }
         return true;
-    }
-
-    takeDamage() {
-        // Уменьшаем жизнь на значение attackPower пользователя
-        this.life -= currentUser.attackPower;
+    } 
+    takeDamage(damage = currentUser.attackPower) {
+        this.life -= damage;
         punchSound();
-        if (superFingerActive) {
-            currentUser.attackPower = originalAttackPower
-            superFingerActive = false;
-            document.body.style.cursor = 'auto';
-            document.querySelector("#right-shop .shop-item:nth-child(2) .buy-button").disabled = false;
-            updateUI();
-        }
+        
         if (this.life <= 0) {
-
-            this.life = 0; // чтобы пользователь не видел отрицательных хп
             this.isDead = true;
             this.speed = 0;
             this.element.style.pointerEvents = "none";
             this.element.classList.add("beetle-dead");
-
-            if(this.isRare){
+    
+            if (this.isRare) {
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug_rare.png')`;
                 currentUser.diamond += this.price;
-            }
-            else{
+            } else {
                 this.element.style.backgroundImage = `url('Sprite/bug/dead_bug.png')`;
                 currentUser.gold += this.price;
             }
-            currentUser.score+=this.scoreCount;
-
+            
+            currentUser.score += this.scoreCount;
+    
             setTimeout(() => {
                 this.element.remove();
                 checkBeetles();
             }, 1000);
-
+    
             updateUI();
-
         } else {
             this.element.innerText = this.life;
         }

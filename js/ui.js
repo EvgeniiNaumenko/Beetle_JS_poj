@@ -3,7 +3,12 @@ function updateUI() {
     document.getElementById("score").innerText = Math.floor(currentUser.score);
     document.getElementById("coins").innerText = Math.floor(currentUser.gold);
     document.getElementById("gems").innerText = Math.floor(currentUser.diamond);
-
+    //звук
+    //document.getElementById("volume").ariaValueNow = currentUser.volume;
+    // магазин
+    //пользовательские скилы
+    document.getElementById("player-strength-value").innerText = currentUser.attackPower;;
+    //левый первый
     // Магазин
     // Левый первый
     document.querySelector("#left-shop .shop-item:nth-child(1) .level").innerText = currentUser.leftShopItem1Lvl;
@@ -14,29 +19,15 @@ function updateUI() {
     // Левый третий
     document.querySelector("#left-shop .shop-item:nth-child(3) .level").innerText = currentUser.leftShopItem3Lvl;
     document.querySelector("#left-shop .shop-item:nth-child(3) .price").innerText = price * currentUser.leftShopItem3Lvl * 3;
-
-    // Правый первый
+    //правый первый
     document.querySelector("#right-shop .shop-item:nth-child(1) .level").innerText = currentUser.rightShopItem1Lvl;
-    document.querySelector("#right-shop .shop-item:nth-child(1) .price").innerText = price * currentUser.rightShopItem1Lvl;
-
-    // Правый второй
-    document.querySelector("#right-shop .shop-item:nth-child(2) .price").innerText = superFingerPrice;
-
-    // Правый третий
-    document.querySelector("#right-shop .shop-item:nth-child(3) .price").innerText = sprayStats.price;
-
-    // Если редкость достигла максимума, скрываем кнопку и показываем сообщение
-    if (beetleStats.rareChance >= 0.5) {
-        document.querySelector("#right-shop .shop-item:nth-child(1) .buy-button").disabled = true;
-    } else {
-        document.querySelector("#right-shop .shop-item:nth-child(1) .buy-button").disabled = false;
-    }
-
-    // Если редкость достигла максимума, показываем сообщение
-    if (beetleStats.rareChance >= 0.5) {
-        document.querySelector("#right-shop .shop-item:nth-child(1) .level").innerText = "MAX";
-    }
-
+    document.querySelector("#right-shop .shop-item:nth-child(1) .price").innerText = price * currentUser.rightShopItem1Lvl*2;
+    //dnjhjq второй
+    document.querySelector("#right-shop .shop-item:nth-child(2) .level").innerText = currentUser.rightShopItem2Lvl;
+    document.querySelector("#right-shop .shop-item:nth-child(2) .price").innerText = price * currentUser.rightShopItem2Lvl*4;
+    //правый третий
+    document.querySelector("#right-shop .shop-item:nth-child(3) .level").innerText = currentUser.rightShopItem3Lvl;
+    document.querySelector("#right-shop .shop-item:nth-child(3) .price").innerText = price * currentUser.rightShopItem3Lvl*5;
     // ! сохраняем результат
     //saveGameState();
 }

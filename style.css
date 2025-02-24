@@ -19,17 +19,47 @@ body {
 .header {
     width: 100%;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     background: #333;
     color: white;
     padding: 10px;
+    font-size: 16px;
 }
+.header div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 30px;
+}
+
+/* Выравнивание текстовых блоков по центру */
+.header > div:not(.sound-controls) {
+    flex: 1;
+    text-align: center;
+}
+.header span{
+    text-align: center;
+}
+/* Группировка кнопок управления звуком и выравнивание вправо */
+.sound-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+/* Ограничение размера иконок */
+.sound-controls img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
 .game-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 42px);
+    /* height: calc(100vh - 42px); */
 }
 .shop {
     color: white;
@@ -70,6 +100,7 @@ body {
     margin-right: 100px;
 }
 .right-shop img{
+
     flex : 0 0 auto;
     max-width: 100%;
     max-height: 100px;
@@ -119,25 +150,26 @@ body {
 .beetle-dead {
     animation: death 1s forwards;
 }
-
-#muteButton {
-    background-color: #dc3545; /* Красный цвет (как предупреждение) */
-    color: white; /* Белый текст */
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px; /* Закругленные углы */
-    transition: background-color 0.3s ease, transform 0.1s ease;
+.description div {
+    display: flex;
+    align-items: center; /* Центрируем элементы по вертикали */
+    gap: 5px; /* Добавляем небольшой отступ между картинкой и текстом */
+}
+.description img{
+    height: 50px;
+    width: 50px;
 }
 
-#muteButton:hover {
-    background-color: #c82333; /* Темно-красный при наведении */
+.shop-item{
+    display: flex;
+    align-items: center; /* Центрируем элементы по вертикали */
+    gap: 5px; /* Добавляем небольшой отступ между картинкой и текстом */
+}
+#muteButton:hover, #backgroundMusicButton:hover  {
+    scale: 1.1;
 }
 
-#muteButton:active {
-    background-color: #a71d2a;
+#muteButton:active, #backgroundMusicButton:active {
     transform: scale(0.95); /* Эффект нажатия */
 }
 
@@ -150,16 +182,104 @@ body {
     }
 }
 
+.user-stats {
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    gap: 20px; /* Отступ между элементами */
+    height: 50px; /* Фиксированная высота */
+    overflow: hidden; /* Скрываем выходящие за границы части */
+    padding: 10px;
+}
+
+/* Общие стили для всех элементов внутри user-stats */
+.user-stats > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Занимает всю высоту контейнера */
+    max-width: 33%; /* Ограничение ширины */
+}
+
+/* Стили для изображений (ограничение размера) */
+.user-stats img {
+    max-height: 100%; /* Подстраивается под родителя */
+    max-width: 100%; /* Не выходит за пределы блока */
+    object-fit: contain; /* Сохраняем пропорции */
+}
+
+/* Стили для блока силы игрока */
+.player-strength {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Отступ между картинкой и текстом */
+}
+
+/* Стили для текста */
+.user-stats span {
+    font-size: 14px;
+    color: white;
+    white-space: nowrap; /* Запрещает перенос строк */
+}
+
+/* Стили для способностей (умений) */
+.ability {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для изображения способностей */
+.ability img {
+    border: 5px solid green; /* Готово */
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Активное состояние способности */
+.ability img.active {
+    border-color: blue !important; /* Действует */
+    opacity: 0.6;
+}
+
+/* Перезарядка способности */
+.ability img.cooldown {
+    border-color: red !important; /* Перезарядка */
+    opacity: 0.6; /* Затемнение картинки */
+}
+
+
+/* Стили для таймера кулдауна */
+.ability span {
+    display: none; /* По умолчанию скрыт */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрирование */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Отображение таймера во время кулдауна */
+.ability.cooldown span {
+    display: block;
+}
+
 .spray-effect {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("Sprite/UI/spray1.png");
-    animation: sprayAnimation 0.5s infinite alternate;
+    background: url("Sprite/UI/spray_effect_1.png");
+    animation: sprayAnimation 1s infinite alternate;
     pointer-events: none;
-
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -167,13 +287,13 @@ body {
 
 @keyframes sprayAnimation {
     0% {
-        background-image: url('Sprite/UI/spray1.png');
+        background-image: url('Sprite/UI/spray_effect_1.png');
         opacity: 0.5;
-        transform: scale(1);
+        transform: scale(0.8);
     }
     100% {
-        background-image: url('Sprite/UI/spray2.png');
-        opacity: 0.3;
+        background-image: url('Sprite/UI/spray_effect_2.png');
+        opacity: 0.8;
         transform: scale(0.9);
     }
 }
