@@ -102,29 +102,6 @@ rightItem1.addEventListener('click', function(){
     }
 })
 
-leftItem3.addEventListener('click', function(){
-    if(currentUser.gold > price * currentUser.leftShopItem3Lvl * 2) {
-        buyItemSound();
-        currentUser.gold -= price * currentUser.leftShopItem3Lvl * 2;
-
-        if (currentUser.attackPower <= 500) {
-            currentUser.attackPower *= 1.3;
-        } else if (currentUser.attackPower <= 2000) {
-            currentUser.attackPower *= 1.1;
-        } else {
-            currentUser.attackPower *= 1.07;
-        }
-        currentUser.attackPower = Math.ceil(currentUser.attackPower);
-        if(currentUser.rightShopItem1Lvl === shopMaxLVLs.rightShop1){
-            this.style.display = "none";  
-        }
-        updateUI();
-    }
-    else{
-        cantBuyItemSound()
-    }
-})
-
 // кулак(тапок) ванпачмена
 rightItem2.addEventListener('click', function(){
     if(currentUser.diamond >= price * currentUser.rightShopItem2Lvl*4)
@@ -160,30 +137,6 @@ rightItem3.addEventListener('click', function(){
         if(currentUser.rightShopItem3Lvl === shopMaxLVLs.rightShop3){
             this.style.display = "none";  
         }
-        updateUI();
-    } else {
-        cantBuyItemSound();
-    }
-});
-
-rightItem2.addEventListener('click', function() {
-    if (currentUser.diamond >= superFingerPrice && !superFingerActive) {
-        buyItemSound();
-        currentUser.diamond -= superFingerPrice;
-        superFingerActive = true;
-        superFingerPrice *= 1.75;
-
-        // прикольный курсор))
-        document.documentElement.style.cursor = 'url(../Sprite/UI/fingeer-_1_.cur) 0 0, auto';
-
-        originalAttackPower = currentUser.attackPower;
-        currentUser.attackPower = Number.MAX_SAFE_INTEGER; // максимальный урон
-
-        // если палец активный - нельзя еще покупать
-        document.querySelector("#right-shop .shop-item:nth-child(2) .buy-button").disabled = true;
-
-        document.querySelector("#right-shop .shop-item:nth-child(1) .price").innerText = superFingerPrice;
-
         updateUI();
     } else {
         cantBuyItemSound();
