@@ -22,11 +22,6 @@ const shopMaxLVLs ={
     rightShop2: 10,
     rightShop3: 10,
 }
-const shopPriceList ={
-    price: 25,
-    factor: 5,
-    get leftItemPrice1(){}
-}
 
 //пользователь
 const currentUser = {
