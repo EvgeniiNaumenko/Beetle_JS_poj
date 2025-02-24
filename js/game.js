@@ -1,10 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     // ! загружаем рзультат
-    loadGameState();
     setTimeout(() => {
         document.getElementById('loading-screen').style.display = 'none';
     }, 1500);
+    loadGameState();
     updateUI();
     checkBeetles();
     animateBeetles(); 
