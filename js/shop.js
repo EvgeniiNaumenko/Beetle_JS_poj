@@ -83,7 +83,7 @@ leftItem3.addEventListener('click', function(){
 // ПРАВЫЙ МАГАЗИН
 // сила нашей тычки
 rightItem1.addEventListener('click', function(){
-    if(currentUser.rightShopItem1Lvl === shopMaxLVLs.rightShop1){
+    if(currentUser.rightShopItem1Lvl >= shopMaxLVLs.rightShop1){
             this.style.display = "none";  
         }
     else if(currentUser.gold >= price * currentUser.rightShopItem1Lvl*2)
